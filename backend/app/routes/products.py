@@ -12,8 +12,8 @@ def create_product():
     try:
         data = request.get_json()
         
-    if not is_valid_image_url(data['image_url']):
-        return jsonify({"error": "URL de imagem inválida"}), 400
+        if not is_valid_image_url(data['image_url']):
+            return jsonify({"error": "URL de imagem inválida"}), 400
 
 
 

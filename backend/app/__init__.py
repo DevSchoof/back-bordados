@@ -9,9 +9,11 @@ from .config import DevelopmentConfig
 from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy import inspect
 import os
+from .routes.products import products_bp
 
 # Configuração do gerenciador de login
 login_manager = LoginManager()
+
 
 class SecureModelView(ModelView):
     """View protegida que requer autenticação e privilégios de admin"""
@@ -45,6 +47,9 @@ def create_app(config=DevelopmentConfig):
     jwt.init_app(app)
     login_manager.init_app(app)
     login_manager.login_view = 'login'
+
+    # inicialização dos blueprints
+    app.register_blueprint(products_bp)
     
     # Configuração do user_loader
     @login_manager.user_loader

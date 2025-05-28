@@ -9,7 +9,7 @@ class Product(db.Model):
     description = db.Column(db.Text, nullable=False)
     alt_description = db.Column(db.Text)
     image_url = db.Column(db.String(500), nullable=False)
-    category = db.Column(db.String(50), nullable=False)
+    categoria = db.Column(db.String(50), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     @property
